@@ -1,23 +1,24 @@
 function highlight() {
   const table = document.querySelector('table.chatUsers');
+  const rows = table.rows;
 
-  for (let i = 1; i < table.rows.length; i++) {
-    if (table.rows[i].cells[1] < 18) {
-      table.rows[i].style.textDecoration = 'line-through';
+  for (let i = 1; i < rows.length; i++) {
+    if (rows[i].cells[1].textContent < 18) {
+      rows[i].style.textDecoration = 'line-through';
     }
 
-    if (table.rows[i].cells[2] === 'm') {
-      table.rows[i].classList.add('male');
-    } else if (table.rows[i].cells[2] === 'f') {
-      table.rows[i].classList.add('female');
+    if (rows[i].cells[2].textContent === 'm') {
+      rows[i].classList.add('male');
+    } else if (rows[i].cells[2].textContent === 'f') {
+      rows[i].classList.add('female');
     }
 
-    if (table.rows[i].cells[3].dataset.role === 'regular') {
-      table.rows[i].classList.add('regular');
-    } else if (table.rows[i].cells[3].dataset.role === 'admin') {
-      table.rows[i].classList.add('admin');
+    if (rows[i].cells[3].dataset.role === 'regular') {
+      rows[i].classList.add('regular');
+    } else if (rows[i].cells[3].dataset.role === 'admin') {
+      rows[i].classList.add('admin');
     } else {
-      table.rows[i].hidden = true;
+      rows[i].hidden = true;
     }
   }
 }
